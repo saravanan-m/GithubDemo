@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">GithubDemo</string>
+
+    <string name="owner">Owner name</string>
+    <string name="repo">Repo name</string>
+    <string name="get_action">Fetch</string>
+</resources>
