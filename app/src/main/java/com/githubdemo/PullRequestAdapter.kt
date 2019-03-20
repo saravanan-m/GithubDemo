@@ -62,9 +62,13 @@ class PullRequestAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     class DataViewHolder(var view: View) : RecyclerView.ViewHolder(view) {
         var title: TextView = view.findViewById(R.id.title)
         var url: TextView = view.findViewById(R.id.url)
+        var state : TextView = view.findViewById(R.id.state)
+        var user : TextView = view.findViewById(R.id.user)
         fun bind(element: RootElement) {
             title.text = element.title
             url.text = element.url
+            state.text = element.state
+            user.text = element.user?.login
         }
     }
 

@@ -5,7 +5,5 @@ import com.githubdemo.model.RootElement
 
 
 interface GithubRepository {
-    fun getPullResultLiveData(): MutableLiveData<List<RootElement>>
-
-    fun initSearch(owner: String, repo: String, page: Int)
+    fun initSearch(owner: String, repo: String, page: Int): List<RootElement>?
 }

@@ -7,6 +7,6 @@ import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface GithubService {
-    @GET("/repos/{owner}/{repo}/pulls")
+    @GET("/repos/{owner}/{repo}/issues?state=all")
     fun getPullRequestList(@Path("owner") owner: String, @Path("repo") repo: String, @Query("page") page: Int): Call<List<RootElement>>
 }

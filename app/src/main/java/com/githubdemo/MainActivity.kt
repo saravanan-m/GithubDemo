@@ -19,12 +19,13 @@ import javax.inject.Inject
 import android.content.Context.INPUT_METHOD_SERVICE
 import android.support.v4.content.ContextCompat.getSystemService
 import android.view.inputmethod.InputMethodManager
+import com.githubdemo.repository.GitCommonRepository
 
 
 class MainActivity : AppCompatActivity() {
 
     @Inject
-    lateinit var repo: GithubRepository
+    lateinit var repo: GitCommonRepository
 
     var isLoading: Boolean = false
     override fun onCreate(savedInstanceState: Bundle?) {

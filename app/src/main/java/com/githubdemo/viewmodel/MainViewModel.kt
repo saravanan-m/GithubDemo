@@ -6,6 +6,7 @@ import android.arch.lifecycle.MutableLiveData
 import android.databinding.ObservableBoolean
 import android.databinding.ObservableField
 import com.githubdemo.model.RootElement
+import com.githubdemo.repository.GitCommonRepository
 import com.githubdemo.repository.GithubRepository
 
 class MainViewModel(application: Application) : AndroidViewModel(application) {
@@ -17,7 +18,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     var dataVisibility = ObservableBoolean(false)
     var pageNumber = 1
     var initLoading = false
-    lateinit var repository: GithubRepository
+    lateinit var repository: GitCommonRepository
 
     var hideKeyboard = MutableLiveData<Boolean>()
     fun fetch(initial: Boolean) {
@@ -28,7 +29,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         }else{
             initLoading = false
         }
-        repository.initSearch(owner.get()!!, repo.get()!!,pageNumber)
+        repository.init(owner.get()!!, repo.get()!!,pageNumber)
         pageNumber++
         hideKeyboard.value = true
     }
@@ -44,6 +45,6 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun getLiveData(): MutableLiveData<List<RootElement>> {
-        return repository.getPullResultLiveData()
+        return repository.githubLiveData
     }
 }
